@@ -134,18 +134,16 @@ function initFormHandler() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Gather form data including file upload
-    const formData = new FormData(form);
-
-    // Send to web3forms API (configured via data attribute) or your own backend
-    const endpoint = form.getAttribute('data-web3forms-key')
-      ? 'https://api.web3forms.com/submit'
-      : '/api/submit-place'; // fallback endpoint
-
-    // Add web3forms access key if present
-    if (form.getAttribute('data-web3forms-key')) {
-      formData.append('access_key', form.getAttribute('data-web3forms-key'));
+    // Get the Web3Forms access key from the form
+    const accessKey = form.getAttribute('data-web3forms-key');
+    if (!accessKey) {
+      console.error('Web3Forms key not found');
+      return;
     }
+
+    // Create FormData and add the access key
+    const formData = new FormData(form);
+    formData.append('access_key', accessKey);
 
     // Show loading state
     const submitBtn = form.querySelector('.submit-btn');
@@ -153,24 +151,24 @@ function initFormHandler() {
     if (submitBtn) submitBtn.disabled = true;
     if (submitBtn) submitBtn.textContent = 'กำลังส่ง...';
 
-    // Send the request
-    fetch(endpoint, {
+    // Send to Web3Forms API
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData
     })
       .then(res => res.json())
       .then(data => {
-        // Show success message
-        successMessage.classList.add('show');
-        form.reset();
-        setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
+        if (data.success) {
+          // Show success message
+          successMessage.classList.add('show');
+          form.reset();
+          setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
+        } else {
+          console.error('Web3Forms error:', data);
+        }
       })
       .catch(err => {
         console.error('Form submission error:', err);
-        // Still show success to user (data was collected even if delivery failed)
-        successMessage.classList.add('show');
-        form.reset();
-        setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
       })
       .finally(() => {
         // Restore button state
