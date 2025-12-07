@@ -129,6 +129,11 @@ function drawLogo() {
 
 function initFormHandler() {
   const form = getElement(DOM_SELECTORS.form);
+  if (!form) return;
+
+  // If the form has a native action (e.g., posts to Web3Forms), do not intercept — let the browser submit it.
+  if (form.getAttribute('action')) return;
+
   const successMessage = getElement(DOM_SELECTORS.successMsg);
 
   form.addEventListener('submit', (e) => {
@@ -165,10 +170,12 @@ function initFormHandler() {
           setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
         } else {
           console.error('Web3Forms error:', data);
+          alert('เกิดข้อผิดพลาดในการส่ง: ' + (data.message || JSON.stringify(data)));
         }
       })
       .catch(err => {
         console.error('Form submission error:', err);
+        alert('การส่งล้มเหลว กรุณาลองอีกครั้ง');
       })
       .finally(() => {
         // Restore button state
