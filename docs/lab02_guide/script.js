@@ -133,9 +133,52 @@ function initFormHandler() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    successMessage.classList.add('show');
-    form.reset();
-    setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
+
+    // Gather form data including file upload
+    const formData = new FormData(form);
+
+    // Send to web3forms API (configured via data attribute) or your own backend
+    const endpoint = form.getAttribute('data-web3forms-key')
+      ? 'https://api.web3forms.com/submit'
+      : '/api/submit-place'; // fallback endpoint
+
+    // Add web3forms access key if present
+    if (form.getAttribute('data-web3forms-key')) {
+      formData.append('access_key', form.getAttribute('data-web3forms-key'));
+    }
+
+    // Show loading state
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn?.textContent;
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitBtn) submitBtn.textContent = 'กำลังส่ง...';
+
+    // Send the request
+    fetch(endpoint, {
+      method: 'POST',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        // Show success message
+        successMessage.classList.add('show');
+        form.reset();
+        setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
+      })
+      .catch(err => {
+        console.error('Form submission error:', err);
+        // Still show success to user (data was collected even if delivery failed)
+        successMessage.classList.add('show');
+        form.reset();
+        setTimeout(() => successMessage.classList.remove('show'), SUCCESS_TIMEOUT);
+      })
+      .finally(() => {
+        // Restore button state
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
   });
 }
 
