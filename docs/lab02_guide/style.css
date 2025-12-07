@@ -459,203 +459,59 @@ footer {
   }
 }
 
-/* ============================
-   Extra Mobile Responsive Fixes
-   ============================ */
-
-/* Screens ≤ 768px */
 @media (max-width: 768px) {
 
   header {
-    height: auto;
-    padding: 1rem 0;
-  }
-
-  #logoCanvas {
-    width: 80px;
-    height: 80px;
+    height: auto !important;
+    padding: 0.75rem 0;
   }
 
   .header-container {
-    padding: 0 1rem;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0 1rem !important;
+  }
+
+  #logoCanvas {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .site-title {
+    text-align: center;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-top: 0.25rem;
   }
 
   nav a {
-    font-size: 0.95rem;
-  }
-
-  .hero {
-    padding: 4rem 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
     font-size: 1rem;
-  }
-
-  .content-wrapper {
-    padding: 2rem 1.5rem;
-  }
-
-  .place-icon {
-    height: 160px;
-    font-size: 3.5rem;
-  }
-
-  .place-content h3 {
-    font-size: 1.25rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .contact-section {
-    padding: 2rem;
+    display: inline-block;
+    padding: 0.5rem 0;
   }
 }
 
-/* Screens ≤ 480px */
+/* Very Small Screens */
 @media (max-width: 480px) {
 
-  header {
-    height: auto;
-  }
-
   #logoCanvas {
-    width: 70px;
-    height: 70px;
+    width: 70px !important;
+    height: 70px !important;
   }
 
   .site-title {
-    font-size: 1.2rem;
-  }
-
-  nav {
-    gap: 0.5rem;
+    font-size: 1.2rem !important;
   }
 
   nav a {
-    font-size: 0.9rem;
-  }
-
-  .hero {
-    padding: 3rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .places-grid {
-    gap: 1.5rem;
-  }
-
-  .place-card {
-    border-radius: 10px;
-  }
-
-  .place-icon {
-    height: 140px;
-    font-size: 3rem;
-  }
-
-  .place-content p {
-    font-size: 0.9rem;
-  }
-
-  .contact-section {
-    padding: 1.5rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    font-size: 0.9rem;
-    padding: 0.65rem;
-  }
-
-  .submit-btn {
-    font-size: 1rem;
-    padding: 0.9rem;
-  }
-}
-
-/* Screens ≤ 375px (iPhone SE / Mini) */
-@media (max-width: 375px) {
-
-  #logoCanvas {
-    width: 60px;
-    height: 60px;
-  }
-
-  .site-title {
-    font-size: 1.05rem;
-  }
-
-  nav a {
-    font-size: 0.85rem;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .place-icon {
-    height: 130px;
-    font-size: 2.7rem;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-}
-
-/* Screens ≤ 320px (มือถือจอเล็กมาก) */
-@media (max-width: 320px) {
-
-  #logoCanvas {
-    width: 50px;
-    height: 50px;
-  }
-
-  .site-title {
-    font-size: 0.95rem;
-  }
-
-  nav {
-    gap: 0.3rem;
-  }
-
-  nav a {
-    font-size: 0.8rem;
-  }
-
-  .hero h1 {
-    font-size: 1.35rem;
-  }
-
-  .hero p {
-    font-size: 0.85rem;
-  }
-
-  .place-icon {
-    height: 120px;
-    font-size: 2.5rem;
-  }
-
-  .submit-btn {
-    font-size: 0.95rem;
+    font-size: 0.9rem !important;
   }
 }
