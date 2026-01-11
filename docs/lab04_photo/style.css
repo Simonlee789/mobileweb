@@ -1,79 +1,102 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f7fa;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-h2 {
-  color: #34495e;
-  border-left: 5px solid #4a90e2;
-  padding-left: 10px;
-  margin-top: 30px;
-}
-
-p {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
   line-height: 1.6;
 }
 
-.info {
-  background: #eef4ff;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+.container {
+  max-width: 760px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
-.screenshots {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.screenshots img {
-  width: 280px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-.download {
-  text-align: center;
-  margin: 30px 0;
-}
-
-.download a {
+/* ปุ่มกลับ */
+.back-btn {
   display: inline-block;
-  padding: 14px 24px;
-  background: #4a90e2;
-  color: #ffffff;
+  margin-bottom: 16px;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 0.9rem;
+  color: #2563eb;
 }
 
-.download a:hover {
-  background: #357abd;
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 42px 0 18px;
+  font-weight: 600;
+}
+
+.info p {
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+/* รูป + คำอธิบาย */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+figure {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+figure img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ดาวน์โหลด */
+.download-section {
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
 }
 
 footer {
+  margin-top: 70px;
+  font-size: 0.85rem;
+  color: #6b7280;
   text-align: center;
-  font-size: 14px;
-  color: #777;
-  margin-top: 30px;
 }
