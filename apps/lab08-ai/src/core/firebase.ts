@@ -2,12 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_nRBfVPnHZKmrMtjXFWhivn5UkOKgWPA",
-  authDomain: "lab06expense.firebaseapp.com",
-  projectId: "lab06expense",
-  storageBucket: "lab06expense.firebasestorage.app",
-  messagingSenderId: "212846147909",
-  appId: "1:212846147909:web:c9f269d5ac8344d6c2262c"
+  apiKey: "AIzaSyAjMSllMURub-egestm6YqsZA14dgdkYt0",
+  authDomain: "lab07-1a6e8.firebaseapp.com",
+  projectId: "lab07-1a6e8",
+  storageBucket: "lab07-1a6e8.firebasestorage.app",
+  messagingSenderId: "628399798765",
+  appId: "1:628399798765:web:b36b6b8d59605ad71c4fe4",
+  measurementId: "G-BXCYRLM339"
 };
+
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
