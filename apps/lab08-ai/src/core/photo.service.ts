@@ -17,10 +17,8 @@ export class PhotoService {
       reader.readAsDataURL(file);
     });
 
-
     return { base64, mimeType: file.type || "image/jpeg" };
   }
-
 
   // 2) ถ่ายภาพ/เลือกจากแกลเลอรี (Capacitor)
   static async fromCamera(): Promise<Base64Image> {
@@ -35,3 +33,4 @@ export class PhotoService {
     return { base64: photo.base64String, mimeType: photo.format ? `image/${photo.format}` : "image/jpeg" };
   }
 }
+

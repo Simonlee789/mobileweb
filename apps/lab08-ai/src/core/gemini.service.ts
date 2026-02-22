@@ -3,18 +3,15 @@ import { getAI, getGenerativeModel, GoogleAIBackend } from "firebase/ai";
 import { app } from "./firebase";
 import { imageAnalysisSchema } from "./ai.interface";
 
-
 export const ai = getAI(app, { backend: new GoogleAIBackend() });
 
-
 export const visionModel = getGenerativeModel(ai, {
-  model: "gemini-2.0-flash",
+  model: "gemini-2.5-flash",
   generationConfig: {
     responseMimeType: "application/json",
     responseSchema: imageAnalysisSchema,
   },
 });
-
 
 export class GeminiVisionService {
   static async analyze(image: Base64Image): Promise<ImageAnalysisResult> {
