@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "628399798765",
+    "project_id": "lab07-1a6e8",
+    "storage_bucket": "lab07-1a6e8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628399798765:android:947e056d5c8d45591c4fe4",
+        "android_client_info": {
+          "package_name": "cpkku.weerapat.lab07"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628399798765-5at1gnspo8mnrs3ra8fm62ouu9grokln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMONNCn0LMb8pjQ3FDzNrTj7OTg0LV1AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628399798765-5at1gnspo8mnrs3ra8fm62ouu9grokln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
